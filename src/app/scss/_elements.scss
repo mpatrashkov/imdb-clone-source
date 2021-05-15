@@ -1,0 +1,64 @@
+.button {
+  border-radius: 3px;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &__secondary {
+    background: $background-secondary;
+    color: white;
+  }
+}
+
+.input {
+  margin: 10px 0;
+  width: 100%;
+
+  label {
+    display: block;
+  }
+
+  input {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 0;
+    padding: 5px;
+    width: 100%;
+  }
+
+  &--error {
+    color: $color-danger;
+    font-size: 14px;
+  }
+
+  .ng-invalid:not(.ng-untouched) {
+    border: 1px solid $color-danger;
+  }
+}
+
+.textarea {
+  width: 100%;
+
+  textarea {
+    resize: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 0;
+    padding: 5px;
+    width: 100%;
+  }
+
+  .ng-invalid:not(.ng-untouched) {
+    border: 1px solid $color-danger;
+  }
+}
+
+.alert {
+  &__danger {
+    color: $color-danger;
+  }
+}

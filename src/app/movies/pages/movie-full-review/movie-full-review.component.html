@@ -1,0 +1,15 @@
+<div class="container movieFullReview">
+  <app-movie-go-back
+    *ngIf="movieOverview$ | async as movieOverview"
+    [movieOverview]="movieOverview"
+    [link]="refUrl"
+    [text]="'Back to ' + refText"
+  ></app-movie-go-back>
+  <div class="movieFullReview--review">
+    <app-movie-review
+      *ngIf="review$ | async as review"
+      [review]="review"
+      [length]="-1"
+    ></app-movie-review>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<a [routerLink]="['movies', searchResult.id]">
+  <div class="searchResult">
+    <app-image
+      class="searchResult--image"
+      [path]="searchResult.poster_path"
+      posterSize="w92"
+    ></app-image>
+    <div class="searchResult--info">
+      <div>
+        {{ searchResult.title }}
+      </div>
+      <div class="searchResult--year">
+        {{ searchResult.release_date | date: "yyyy" }}
+      </div>
+      <div class="searchResult--genres">{{ searchResult.genres | genres }}</div>
+    </div>
+  </div>
+</a>

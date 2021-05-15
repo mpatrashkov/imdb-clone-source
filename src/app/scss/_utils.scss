@@ -1,0 +1,21 @@
+.bold {
+  font-weight: bold;
+}
+
+.gray {
+  color: $gray;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.elevation-1 {
+  background: rgb(32, 32, 32);
+}
+
+.elevation-2 {
+  background: rgb(48, 48, 48);
+}

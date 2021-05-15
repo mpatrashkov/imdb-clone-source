@@ -1,0 +1,11 @@
+<div class="favourites movieGrid">
+  <div class="container">
+    <h3 class="home--title title">Favourites</h3>
+    <div *ngIf="favourites$ | async as favourites" class="movieGrid--row">
+      <div class="col" *ngFor="let movie of favourites">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+      <i *ngIf="favourites.length === 0" class="gray">No Favourites</i>
+    </div>
+  </div>
+</div>

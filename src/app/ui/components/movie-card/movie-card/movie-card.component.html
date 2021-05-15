@@ -1,0 +1,33 @@
+<a [routerLink]="['/movies', movie.id]">
+  <article class="movieCard">
+    <app-image
+      [path]="movie.poster_path"
+      [aspectRatio]="3 / 2"
+      class="movieCard--img"
+    ></app-image>
+    <header class="movieCard--title">{{ movie.original_title }}</header>
+    <div class="gray">{{ movie.release_date | date: "y" }}</div>
+    <div class="movieCard--rating bold" *ngIf="movie.vote_count > 0">
+      <app-movie-rating
+        [rating]="movie.vote_average"
+        [styles]="{
+          high: 'movieCard--rating-high',
+          normal: 'movieCard--rating-normal',
+          low: 'movieCard--rating-low'
+        }"
+      ></app-movie-rating>
+    </div>
+    <button
+      *ngIf="!(favourite$ | async); else alreadyFavourited"
+      class="movieCard--addToFavourites"
+      (click)="favourite($event)"
+    >
+      <span class="material-icons">favorite_border</span>
+    </button>
+    <ng-template #alreadyFavourited>
+      <button class="movieCard--addToFavourites" (click)="unfavourite($event)">
+        <span class="material-icons">favorite</span>
+      </button>
+    </ng-template>
+  </article>
+</a>

@@ -1,0 +1,30 @@
+.loginForm {
+  padding-top: 10px;
+  width: 320px;
+  margin: 0 auto;
+
+  &--title {
+    color: $color-secondary;
+    text-align: center;
+  }
+
+  &--form {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .button {
+      margin-top: 5px;
+    }
+
+    &-alert {
+      margin-top: 10px;
+    }
+  }
+}

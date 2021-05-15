@@ -1,0 +1,9 @@
+<div class="readMore">
+  <div class="readMore--content" [innerHTML]="showedContent"></div>
+  <div *ngIf="content.length > length && length >= 0" class="readMore--link">
+    <a *ngIf="!show; else showLessBtn" (click)="showMore()">Show More</a>
+    <ng-template #showLessBtn>
+      <a (click)="showLess()">Show Less</a>
+    </ng-template>
+  </div>
+</div>

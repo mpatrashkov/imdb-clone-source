@@ -1,0 +1,21 @@
+<ng-container *ngIf="path; else noImg">
+  <div
+    *ngIf="aspectRatio !== 0; else autoHeight"
+    class="image--wrapper"
+    [style.padding-top.%]="aspectRatio * 100"
+    [style.width]="width"
+    [style.height]="height"
+  >
+    <img [lazyLoad]="baseUrl + posterSize + path" />
+  </div>
+
+  <ng-template #autoHeight>
+    <img class="image--autoHeight" [lazyLoad]="baseUrl + posterSize + path" />
+  </ng-template>
+</ng-container>
+
+<ng-template #noImg>
+  <div class="noImg">
+    <div class="noImg--svg"></div>
+  </div>
+</ng-template>

@@ -1,0 +1,167 @@
+<div class="details" *ngIf="movieOverview$ | async as movieOverview">
+  <section class="details--image">
+    <div class="details--image-backdrop">
+      <div class="details--poster-xs">
+        <app-image [path]="movieOverview.backdrop_path"></app-image>
+      </div>
+      <div class="details--poster-sm">
+        <app-image
+          [path]="movieOverview.backdrop_path"
+          posterSize="w780"
+          height="100%"
+        ></app-image>
+      </div>
+      <div class="details--poster-md">
+        <app-image
+          [path]="movieOverview.backdrop_path"
+          posterSize="w780"
+        ></app-image>
+      </div>
+      <div class="details--poster-lg">
+        <app-image
+          [path]="movieOverview.backdrop_path"
+          posterSize="w780"
+          height="100%"
+        ></app-image>
+      </div>
+      <div class="details--poster-xl">
+        <app-image
+          [path]="movieOverview.backdrop_path"
+          posterSize="w1280"
+          width="1280px"
+          height="100%"
+        ></app-image>
+      </div>
+      <div class="details--poster-xxl">
+        <app-image
+          [path]="movieOverview.backdrop_path"
+          posterSize="w1280"
+          width="1280px"
+          height="100%"
+        ></app-image>
+      </div>
+      <div class="details--image-backdrop-gradient"></div>
+      <div
+        class="details--image-rating bold"
+        *ngIf="movieOverview.vote_count > 0"
+      >
+        <app-movie-rating
+          [rating]="movieOverview.vote_average"
+          [styles]="{
+            high: 'details--image-rating-high',
+            normal: 'details--image-rating-normal',
+            low: 'details--image-rating-low'
+          }"
+        ></app-movie-rating>
+      </div>
+    </div>
+    <div class="container details--image-container">
+      <div class="details--image-poster">
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-xs details--image-poster-image"
+          posterSize="w92"
+          width="92px"
+        ></app-image>
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-sm details--image-poster-image"
+          posterSize="w154"
+          width="154px"
+        ></app-image>
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-md details--image-poster-image"
+          posterSize="w185"
+          width="185px"
+        ></app-image>
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-lg details--image-poster-image"
+          posterSize="w185"
+          width="185px"
+        ></app-image>
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-xl details--image-poster-image"
+          posterSize="w342"
+          width="342px"
+        ></app-image>
+        <app-image
+          [path]="movieOverview.poster_path"
+          [aspectRatio]="3 / 2"
+          class="details--poster-xxl details--image-poster-image"
+          posterSize="w342"
+          width="342px"
+        ></app-image>
+      </div>
+      <div class="details--image-info">
+        <app-movie-info [movieOverview]="movieOverview"></app-movie-info>
+      </div>
+    </div>
+  </section>
+
+  <section class="details--info">
+    <app-movie-info [movieOverview]="movieOverview"></app-movie-info>
+  </section>
+
+  <div class="container">
+    <section>
+      <h3 class="details--title title">Movie Cast</h3>
+      <app-movie-cast [movieId]="movieOverview.id"></app-movie-cast>
+    </section>
+
+    <section class="details--details">
+      <h3 class="title">Details</h3>
+      <div class="">
+        <div class="details--detail">
+          <div class="bold">Release Date</div>
+          <div class="details--details-value">
+            {{ movieOverview.release_date | date: "dd/MM/yyyy" }}
+          </div>
+        </div>
+
+        <div class="details--detail">
+          <div class="bold">Homepage</div>
+          <div class="details--details-value">
+            <a [href]="movieOverview.homepage">{{ movieOverview.homepage }}</a>
+          </div>
+        </div>
+        <div class="details--detail">
+          <div class="bold">Budget</div>
+          <div class="details--details-value">
+            ${{ movieOverview.budget | number }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="details--title title">Reviews</h3>
+      <app-movie-reviews [movieId]="movieOverview.id"></app-movie-reviews>
+    </section>
+
+    <section class="details--recommendations">
+      <h3 class="title">Recommendations</h3>
+      <app-movie-recommendations
+        [movieId]="movieOverview.id"
+      ></app-movie-recommendations>
+    </section>
+
+    <section
+      id="personalNote"
+      *ngIf="favourited$ | async"
+      class="details--personalNote"
+    >
+      <h3 class="title">Personal Note</h3>
+      <app-movie-personal-note
+        [movieOverview]="movieOverview"
+      ></app-movie-personal-note>
+    </section>
+  </div>
+</div>

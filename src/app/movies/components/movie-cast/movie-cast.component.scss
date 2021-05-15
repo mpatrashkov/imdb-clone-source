@@ -1,0 +1,48 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.movieCast {
+  padding: 0 15px;
+  &--row {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    overflow-x: auto;
+
+    margin: 0 -5px;
+
+    &-member {
+      width: 120px;
+      flex-shrink: 0;
+      padding: 5px;
+      font-size: 14px;
+
+      @include media($xl) {
+        width: 154px;
+        font-size: 16px;
+      }
+
+      &-svg {
+        height: 165px;
+        display: flex;
+        align-items: center;
+        background: $dark-gray;
+
+        div {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &--fullCast {
+    flex-shrink: 0;
+    font-size: 14px;
+    color: $color-secondary;
+
+    @include media($xl) {
+      font-size: 16px;
+    }
+  }
+}

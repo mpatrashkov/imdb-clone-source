@@ -1,0 +1,11 @@
+<div class="home movieGrid">
+  <div class="container">
+    <h3 class="title">Movies</h3>
+    <div class="movieGrid--row">
+      <div class="col" *ngFor="let movie of movies$ | async">
+        <app-movie-card [movie]="movie"></app-movie-card>
+      </div>
+    </div>
+    <a (click)="loadMore()">Load More</a>
+  </div>
+</div>

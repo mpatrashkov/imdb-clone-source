@@ -1,0 +1,25 @@
+@import "../../../scss/variables";
+
+.movieCastMemberImage {
+  &--image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: $dark-gray;
+
+    &-svg {
+      width: 100%;
+      padding-top: 150%;
+      position: relative;
+
+      div {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

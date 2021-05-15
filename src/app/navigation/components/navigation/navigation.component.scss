@@ -1,0 +1,119 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.nav {
+  background-color: $dark-gray;
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  z-index: 10;
+
+  @include media($md) {
+    position: static;
+    padding: 0 20px;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &--rightIcons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+
+    @include media($md) {
+      margin-left: 0;
+    }
+  }
+
+  &--row {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    @include media($md) {
+      justify-content: start;
+    }
+  }
+
+  &--logo {
+    flex-shrink: 0;
+    @include media($md) {
+      border-right: $border;
+      padding-right: 20px;
+    }
+  }
+
+  &--menuBtn {
+    @include media($md) {
+      display: none;
+    }
+  }
+
+  &--loginBtn {
+    @include media($md) {
+      display: none;
+    }
+  }
+
+  &--loginLink {
+    display: none;
+    margin-left: auto;
+    color: $color-secondary;
+
+    @include media($md) {
+      display: block;
+    }
+  }
+
+  ul.nav--menu__opened {
+    display: block;
+  }
+
+  ul {
+    display: none;
+
+    position: fixed;
+    top: $header-height;
+    background-color: rgb(31, 31, 31);
+    width: 100%;
+
+    @include media($md) {
+      display: block;
+      position: static;
+      width: auto;
+      background-color: inherit;
+      display: flex;
+      flex-direction: row;
+    }
+
+    li {
+      padding: 10px 20px;
+      width: 100%;
+
+      color: white;
+
+      @include media($md) {
+        width: auto;
+        padding: 10px 0 10px 20px;
+      }
+    }
+  }
+
+  &--search {
+    margin-left: 5px;
+
+    @include media($md) {
+      margin-left: 20px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

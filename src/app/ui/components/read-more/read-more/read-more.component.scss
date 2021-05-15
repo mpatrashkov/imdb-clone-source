@@ -1,0 +1,13 @@
+@import "../../../../scss/variables";
+
+.readMore {
+  &--content {
+    word-wrap: break-word;
+  }
+
+  &--link {
+    color: $color-secondary;
+
+    cursor: pointer;
+  }
+}

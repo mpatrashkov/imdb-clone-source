@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./app/scss/variables";
+@import "./app/scss/mixins";
+@import "./app/scss/utils";
+@import "./app/scss/elements";
+
+@import "./app/scss/loginForm";
+@import "./app/scss/movieGrid";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  padding-top: $header-height;
+
+  background-color: black;
+  color: white;
+  font-family: $font-primary;
+
+  @include media($md) {
+    padding-top: 0;
+  }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+
+  &__blank {
+    border: none;
+    outline: none;
+    background-color: inherit;
+  }
+}
+
+.material-icons {
+  color: $gray;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include media($sm) {
+  }
+
+  @include media($md) {
+    width: 700px;
+  }
+
+  @include media($lg) {
+    width: 900px;
+  }
+
+  @include media($xl) {
+    width: 1040px;
+  }
+
+  @include media($xxl) {
+    width: 1300px;
+  }
+}
+
+.title {
+  color: $color-secondary;
+  margin: 10px 0;
+}
+
+a {
+  color: $color-secondary;
+}

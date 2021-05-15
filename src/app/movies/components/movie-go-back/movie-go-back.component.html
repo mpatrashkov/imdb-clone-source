@@ -1,0 +1,11 @@
+<div class="movieGoBack">
+  <app-image
+    [path]="movieOverview.poster_path"
+    [aspectRatio]="3 / 2"
+    posterSize="w45"
+  ></app-image>
+  <div>
+    <app-movie-title [movieOverview]="movieOverview"></app-movie-title>
+    <a [routerLink]="link">{{ text }}</a>
+  </div>
+</div>

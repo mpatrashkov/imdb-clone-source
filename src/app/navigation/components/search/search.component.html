@@ -1,0 +1,30 @@
+<div class="search">
+  <button class="search--button">
+    <span class="material-icons">search</span>
+  </button>
+  <form [formGroup]="searchForm">
+    <input
+      type="text"
+      formControlName="query"
+      placeholder="Search IMDb Clone"
+      (appClickOutside)="closeSearch()"
+      (focus)="openSearch()"
+    />
+    <button class="search--icon">
+      <span class="material-icons">search</span>
+    </button>
+  </form>
+  <div *ngIf="searchOpen" class="search--results elevation-1">
+    <app-search-result
+      class="search--result"
+      *ngFor="let searchResult of searchResults | slice: 0:8"
+      [searchResult]="searchResult"
+    ></app-search-result>
+    <div
+      *ngIf="searchResults.length"
+      class="search--result search--results-more"
+    >
+      <a>See all results for "{{ query.value }}"</a>
+    </div>
+  </div>
+</div>

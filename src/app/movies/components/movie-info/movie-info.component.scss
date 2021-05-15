@@ -1,0 +1,161 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.movieInfo {
+  padding-top: 10px;
+  background-color: $dark-gray;
+
+  @include media($md) {
+    background-color: transparent;
+  }
+
+  &--title {
+    font-size: 20px;
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+
+    @include media($md) {
+      font-size: 30px;
+    }
+
+    &-year {
+      font-size: 16px;
+      color: $gray;
+      margin-left: 7px;
+
+      @include media($md) {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &--subtitle {
+    display: flex;
+    color: $light-gray;
+    font-size: 14px;
+    padding: 0 15px 10px;
+
+    border-bottom: $border;
+
+    @include media($md) {
+      font-size: 16px;
+      border-bottom: none;
+    }
+
+    > :not(:last-child) {
+      margin-right: 7px;
+    }
+
+    > :not(:last-child)::after {
+      padding-left: 7px;
+      display: inline-block;
+      content: "";
+      height: 11px;
+      border-right: $border;
+    }
+  }
+
+  &--tagline {
+    padding: 10px 15px;
+
+    @include media($md) {
+      padding: 0 15px;
+    }
+
+    @include media($xl) {
+      padding: 10px 15px;
+    }
+
+    color: $gray;
+
+    border-bottom: $border;
+
+    @include media($md) {
+      border-bottom: none;
+    }
+  }
+
+  &--description {
+    padding: 10px 15px 0;
+    font-size: 14px;
+
+    @include media($lg) {
+      font-size: 16px;
+    }
+
+    @include media($xl) {
+      padding: 10px 15px;
+    }
+
+    &-title {
+      display: none;
+
+      @include media($md) {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &-readMore {
+      @include media($md) {
+        display: none;
+      }
+    }
+
+    &-text {
+      display: none;
+
+      @include media($md) {
+        display: block;
+      }
+    }
+  }
+
+  &--bottomRow {
+    @include media($md) {
+      display: flex;
+    }
+  }
+
+  &--rating {
+    padding: 10px 15px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    &-high {
+      background-color: green;
+    }
+    &-normal {
+      background-color: orange;
+    }
+    &-low {
+      background-color: red;
+    }
+  }
+
+  app-movie-rating {
+    display: inline-block;
+    line-height: 16px;
+    padding: 5px;
+    margin-right: 5px;
+  }
+
+  &--favourite {
+    padding: 10px 15px;
+
+    .button {
+      display: flex;
+      align-items: center;
+    }
+
+    .material-icons {
+      color: white;
+      margin-right: 5px;
+    }
+  }
+}

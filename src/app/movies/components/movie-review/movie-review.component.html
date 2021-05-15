@@ -1,0 +1,10 @@
+<article class="movieReview">
+  <div class="movieReview--author bold">{{ review.author }}</div>
+  <div>
+    <app-read-more
+      [content]="review.content | markdown"
+      [length]="length"
+      (readMore)="readMoreClicked()"
+    ></app-read-more>
+  </div>
+</article>

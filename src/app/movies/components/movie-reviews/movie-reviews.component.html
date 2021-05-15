@@ -1,0 +1,14 @@
+<div class="movieReviews" *ngIf="reviews$ | async as reviews">
+  <div class="movieReviews--row">
+    <div *ngFor="let review of reviews" class="movieReviews--review">
+      <app-movie-review [review]="review"></app-movie-review>
+    </div>
+  </div>
+  <a
+    *ngIf="(allReviews$ | async)?.length > showReviewsCount"
+    routerLink="reviews"
+    class="movieReviews--more"
+    >View All Reviews</a
+  >
+  <i *ngIf="reviews.length === 0" class="gray">No Reviews</i>
+</div>

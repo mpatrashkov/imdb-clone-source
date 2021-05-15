@@ -1,0 +1,46 @@
+<nav class="nav">
+  <div class="container">
+    <div class="nav--row">
+      <button class="nav--menuBtn btn btn__blank" (click)="menuClicked()">
+        <span class="material-icons">menu</span>
+      </button>
+
+      <a routerLink="/" class="nav--logo bold">IMDb Clone</a>
+
+      <ul [class.nav--menu__opened]="opened">
+        <li (click)="linkClicked()">
+          <a routerLink="/">Home</a>
+        </li>
+        <li *ngIf="loggedIn$ | async" (click)="linkClicked()">
+          <a routerLink="favourites/all">Favourites</a>
+        </li>
+      </ul>
+
+      <div class="nav--rightIcons">
+        <button class="nav--loginBtn btn btn__blank">
+          <a routerLink="auth/signIn">
+            <span
+              *ngIf="!(loggedIn$ | async); else logged"
+              class="material-icons"
+            >
+              account_circle
+            </span>
+          </a>
+          <ng-template #logged>
+            <span (click)="logout()" class="material-icons">exit_to_app</span>
+          </ng-template>
+        </button>
+        <app-search class="nav--search"></app-search>
+      </div>
+
+      <div *ngIf="!(loggedIn$ | async); else loggedLink" class="nav--loginLink">
+        <a routerLink="auth/signIn">Sign In</a>
+      </div>
+      <ng-template #loggedLink>
+        <div class="nav--loginLink" (click)="logout()">
+          <a>Sign Out</a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,22 @@
+<div class="container movieFullCast">
+  <app-movie-go-back
+    *ngIf="movieOverview$ | async as movieOverview"
+    [movieOverview]="movieOverview"
+  ></app-movie-go-back>
+  <h3 class="title">Cast</h3>
+  <div class="movieFullCast--row">
+    <div class="movieFullCast--col" *ngFor="let castMember of cast$ | async">
+      <div class="movieFullCast--image">
+        <app-movie-cast-member-image
+          [castMember]="castMember"
+          size="w92"
+          width="92px"
+        ></app-movie-cast-member-image>
+      </div>
+      <div class="movieFullCast--col-info">
+        <div class="bold">{{ castMember.name }}</div>
+        <div class="gray">{{ castMember.character }}</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.movieFullCast {
+  color: white;
+
+  padding: 10px 15px;
+  @include media($md) {
+    padding: 10px 0;
+  }
+
+  &--movie {
+    display: flex;
+    align-items: center;
+
+    app-iamge {
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    a {
+      padding: 0 15px;
+    }
+  }
+
+  &--row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &--col {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+
+    @include media($md) {
+      width: 50%;
+    }
+
+    &-info {
+      padding-left: 10px;
+    }
+  }
+}

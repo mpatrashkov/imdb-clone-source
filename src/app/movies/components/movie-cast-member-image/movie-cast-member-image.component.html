@@ -1,0 +1,21 @@
+<div class="movieCastMemberImage" [style.width]="width">
+  <app-image
+    *ngIf="castMember.profile_path; else noImage"
+    [path]="castMember.profile_path"
+    [posterSize]="size"
+    [aspectRatio]="3 / 2"
+  ></app-image>
+  <ng-template #noImage>
+    <div class="movieCastMemberImage--image">
+      <div class="movieCastMemberImage--image-svg">
+        <div
+          *ngIf="castMember.gender === 2; else female"
+          [inlineSVG]="'/assets/userMaleGray.svg'"
+        ></div>
+        <ng-template #female>
+          <div [inlineSVG]="'/assets/userFemaleGray.svg'"></div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-template>
+</div>

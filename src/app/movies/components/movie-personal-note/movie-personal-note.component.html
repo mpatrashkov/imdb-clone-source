@@ -1,0 +1,12 @@
+<div class="moviePersonalNote">
+  <form [formGroup]="personalNoteForm" (ngSubmit)="submit()">
+    <div class="textarea">
+      <textarea
+        formControlName="note"
+        class="elevation-1"
+        placeholder="Write anything you would like about this movie"
+      ></textarea>
+    </div>
+    <button class="button button__secondary">Save</button>
+  </form>
+</div>

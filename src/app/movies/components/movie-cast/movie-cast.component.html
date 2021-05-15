@@ -1,0 +1,14 @@
+<div class="movieCast">
+  <div class="movieCast--row">
+    <div *ngFor="let castMember of cast$ | async" class="movieCast--row-member">
+      <app-movie-cast-member-image
+        [castMember]="castMember"
+      ></app-movie-cast-member-image>
+      <div class="bold truncate">{{ castMember.name }}</div>
+      <div class="gray">{{ castMember.character }}</div>
+    </div>
+  </div>
+  <a routerLink="cast" class="movieCast--fullCast">
+    View Full Cast
+  </a>
+</div>

@@ -1,0 +1,14 @@
+<div class="movieRecommendations">
+  <div
+    *ngFor="let movie of recommendations$ | async"
+    class="movieRecommendations--movie"
+  >
+    <app-movie-card [movie]="movie"></app-movie-card>
+  </div>
+  <i
+    *ngIf="(recommendations$ | async)?.length === 0"
+    class="gray movieRecommendations--noRecommendation"
+  >
+    No Recommendations
+  </i>
+</div>

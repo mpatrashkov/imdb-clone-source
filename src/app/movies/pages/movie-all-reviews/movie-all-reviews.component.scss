@@ -1,0 +1,19 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.movieAllReviews {
+  padding: 10px 15px;
+
+  @include media($md) {
+    padding: 10px 0;
+  }
+
+  &--review {
+    padding: 15px 0;
+    border-bottom: $border;
+  }
+
+  &--review:last-child {
+    border-bottom: none;
+  }
+}

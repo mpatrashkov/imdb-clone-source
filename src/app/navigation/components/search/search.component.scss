@@ -1,0 +1,73 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+:host {
+  display: block;
+}
+
+.search {
+  position: relative;
+
+  input {
+    border: none;
+    border-radius: 5px;
+    padding: 7px 40px 7px 7px;
+
+    display: none;
+
+    @include media($md) {
+      display: block;
+      width: 300px;
+    }
+
+    @include media($lg) {
+      width: 500px;
+    }
+  }
+
+  &--button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+
+    @include media($md) {
+      display: none;
+    }
+  }
+
+  &--icon {
+    background: none;
+    border: none;
+    padding: 0;
+
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: none;
+
+    @include media($md) {
+      display: block;
+    }
+  }
+
+  &--results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
+    z-index: 10;
+
+    &-more {
+      padding: 10px;
+    }
+  }
+
+  &--result:hover {
+    transition: all 0.15s;
+    background-color: $dark-gray;
+  }
+}

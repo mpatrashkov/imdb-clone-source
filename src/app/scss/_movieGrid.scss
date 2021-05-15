@@ -1,0 +1,31 @@
+.movieGrid {
+  padding: 10px;
+
+  &--row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    @include media($sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media($md) {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0;
+    }
+
+    @include media($lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include media($xl) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @include media($xxl) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}

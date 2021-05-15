@@ -1,0 +1,35 @@
+@import "../../../scss/variables";
+@import "../../../scss/mixins";
+
+.movieRecommendations {
+  display: flex;
+  overflow-x: auto;
+
+  margin: 0 -5px;
+
+  &--movie {
+    flex-shrink: 0;
+    width: 45%;
+    padding: 5px;
+
+    @include media($sm) {
+      width: percentage($number: 1 / 3);
+    }
+
+    @include media($lg) {
+      width: percentage($number: 1 / 4);
+    }
+
+    @include media($xl) {
+      width: percentage($number: 1 / 5);
+    }
+
+    @include media($xxl) {
+      width: percentage($number: 1 / 6);
+    }
+  }
+
+  &--noRecommendation {
+    padding: 0 5px;
+  }
+}

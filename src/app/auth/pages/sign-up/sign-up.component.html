@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="loginForm">
+    <h2 class="loginForm--title">IMDb Clone</h2>
+    <form
+      class="elevation-1 loginForm--form"
+      [formGroup]="signUpForm"
+      (ngSubmit)="submit()"
+    >
+      <h2 class="loginForm--form-title">Sign Up</h2>
+      <div class="input">
+        <label for="email">
+          Email
+          <input type="email" formControlName="email" />
+        </label>
+        <div
+          class="input--error"
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+        >
+          This is not a valid email
+        </div>
+      </div>
+      <div class="input">
+        <label for="password">
+          Password
+          <input type="password" formControlName="password" />
+          <div
+            class="input--error"
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+          >
+            Password must be at least 6 characters long
+          </div>
+        </label>
+      </div>
+      <div class="input">
+        <label for="password">
+          Cofirm Password
+          <input type="password" formControlName="confirmPassword" />
+          <div
+            class="input--error"
+            *ngIf="
+              confirmPassword.invalid &&
+              (confirmPassword.dirty || confirmPassword.touched)
+            "
+          >
+            Password must be at least 6 characters long
+          </div>
+          <div
+            class="input--error"
+            *ngIf="
+              signUpForm.errors?.passwordsNoMatch &&
+              (signUpForm.touched || signUpForm.dirty)
+            "
+          >
+            Passwords don't match
+          </div>
+        </label>
+      </div>
+      <button class="button button__secondary">Sign Up</button>
+      <div
+        class="alert alert__danger loginForm--form-alert"
+        *ngIf="signUpFailed"
+      >
+        Unexpected error during registration
+      </div>
+    </form>
+    <div class="signUp--signIn">
+      Already have an account?
+      <a routerLink="/auth/signIn" queryParamsHandling="merge">Sign In</a>
+    </div>
+  </div>
+</div>

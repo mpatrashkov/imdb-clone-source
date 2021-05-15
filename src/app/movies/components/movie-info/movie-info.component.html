@@ -1,0 +1,54 @@
+<div class="movieInfo">
+  <app-movie-title [movieOverview]="movieOverview"></app-movie-title>
+  <div class="movieInfo--subtitle">
+    <div *ngIf="movieOverview.runtime">
+      {{ movieOverview.runtime | duration }}
+    </div>
+    <div>
+      <span>{{ movieOverview.genres | genres }}</span>
+    </div>
+  </div>
+  <div class="movieInfo--tagline">
+    <i>{{ movieOverview.tagline }}</i>
+  </div>
+  <div class="movieInfo--description">
+    <div class="movieInfo--description-title bold">Overview</div>
+    <div class="movieInfo--description-readMore">
+      <app-read-more
+        [content]="movieOverview.overview"
+        [length]="150"
+      ></app-read-more>
+    </div>
+    <div class="movieInfo--description-text">{{ movieOverview.overview }}</div>
+  </div>
+  <div class="movieInfo--bottomRow">
+    <div class="movieInfo--rating" *ngIf="movieOverview.vote_count > 0">
+      <app-movie-rating
+        [rating]="movieOverview.vote_average"
+        [styles]="{
+          high: 'movieInfo--rating-high',
+          normal: 'movieInfo--rating-normal',
+          low: 'movieInfo--rating-low'
+        }"
+        suffix=""
+      ></app-movie-rating>
+      User Score
+    </div>
+    <div class="movieInfo--favourite">
+      <button
+        *ngIf="favourite$ | async; else alreadyFavourited"
+        class="button button__secondary"
+        (click)="unfavourite()"
+      >
+        <span class="material-icons">favorite</span>
+        Remove From Favourites
+      </button>
+      <ng-template #alreadyFavourited>
+        <button class="button button__secondary" (click)="favourite()">
+          <span class="material-icons">favorite_border</span>
+          Add To Favourites
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

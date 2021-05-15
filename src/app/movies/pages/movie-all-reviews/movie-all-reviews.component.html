@@ -1,0 +1,10 @@
+<div class="container movieAllReviews">
+  <app-movie-go-back
+    *ngIf="movieOverview$ | async as movieOverview"
+    [movieOverview]="movieOverview"
+  ></app-movie-go-back>
+  <h3 class="title">Reviews</h3>
+  <div *ngFor="let review of reviews$ | async" class="movieAllReviews--review">
+    <app-movie-review [review]="review" [length]="300"></app-movie-review>
+  </div>
+</div>
